@@ -47,7 +47,7 @@ switch ($method) {
       
       $db=new dbConnect();
       $result = $db->userLogin($user, $password);
-      
+      $reply['result'] = $result;
       if($result){
         $reply["status"]="OK";
       } 
@@ -71,8 +71,6 @@ if ($reply['status']!="OK"){
   header($_SERVER["SERVER_PROTOCOL"]." 200");
 }
 
-$reply["post"]=$_POST;
-$reply["request"]=$_REQUEST;
 print json_encode($reply);
 
 ?>
