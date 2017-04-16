@@ -27,8 +27,9 @@
 				<form>
 					<input type="radio" name="my_choice" value="extend" > Cancel the Exam! Everyone gets a 3.9 GPA<br>
 					<input type="radio" name="my_choice" value="dontextend" > No don't cancel the Exam! I wanna die!<br>
-					<button onclick="updateVote();" value="Vote" >Update Votes</button>
+					<button onclick="updateVote();" type="button" >Update Votes</button>
 				</form>
+				<span id="voteError"></span>
 
 				<h2>Current Vote Results</h2>
 			        <table border='1'>

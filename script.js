@@ -63,7 +63,7 @@ function updateVote(){
 				getVotes();
 			}
 		},error: function (data){
-	    	$('#voteError').html("Please choose an option");
+	    	//$('#voteError').html("Please choose an option");
 	    },
 	    async: false
 	});
