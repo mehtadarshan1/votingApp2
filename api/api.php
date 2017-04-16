@@ -1,6 +1,6 @@
 <?php
 
-require_once "dbConnect.php";
+require_once "database.php";
 header('Content-Type: application/json');
 
 # http://stackoverflow.com/questions/797834/should-a-restful-put-operation-return-something
