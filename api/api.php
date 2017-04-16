@@ -56,6 +56,7 @@ switch ($method) {
       $usernm=$_POST['username']; 
       if (empty($vote))break;
       $result= $db->vote($usernm, $vote);
+      $reply["status"]="OK";
     } 
 
     break;
