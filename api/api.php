@@ -19,17 +19,12 @@ switch ($method) {
   case 'GET':
 
       //authenticate
-    if ($operation=="votes"){
-
-      $usernm = $_REQUEST['username'];
-      $passwd = $_REQUEST['password'];
-      $passwd=md5($passwd);
-
-      if (authenticate($usernm, $passwd, $db)){
-
-        $reply["status"]="OK";
-      }
-
+    if ($operation=="getVotes"){
+      $db=new dbConnect();
+      $voteCount = $db->getVoteCount();
+      $reply['extend']=$voteCount['extend'];
+      $reply['dontextend']=$voteCount['dontextend'];
+      $reply["status"]="OK";
     } 
 
     break;
@@ -44,7 +39,7 @@ switch ($method) {
     if ($operation == "login"){
       $usernm=$_POST['username']; 
       $password=$_POST['passwd'];
-      
+
       if(empty($usernm)||empty($password)){
         break;
       }

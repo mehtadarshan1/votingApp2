@@ -8,7 +8,6 @@ function login(){
 	data.passwd = $("#password").val();
 
 	data['operation']='login';
-	console.log(data);
 	$.ajax({
 	    url: 'api/api.php', // your api url
 	    method: 'POST', // method is any HTTP method
@@ -18,12 +17,32 @@ function login(){
 				showLogin(false);
 				showVote(true);	
 				username=$("#username").val();
-				$('#user').html(username);
+				$('#user').html(username + "'s vote pref:");
+				getVotes();
 			}
 		},
 	    error: function (data){
 	    	$('#error').html("Invalid Log In");
 	    },
+	    async: false
+	});
+}
+
+function getVotes(){
+
+	var data = {};
+	data['operation']='getVotes';
+	console.log(data);
+	$.ajax({
+	    url: 'api/api.php', // your api url
+	    method: 'GET', // method is any HTTP method
+	    data: data, // data as js object
+	    success: function(response) {
+			if (response['status'] == "OK"){
+				$("#extend").html(response['extend']);
+				$("#dontextend").html(response['dontextend']);
+			}
+		},
 	    async: false
 	});
 }
