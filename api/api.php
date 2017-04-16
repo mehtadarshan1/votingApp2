@@ -44,7 +44,7 @@ switch ($method) {
     if ($operation == "login"){
       $usernm=$_POST['username']; 
       $password=$_POST['passwd'];
-      echo json_encode($_POST);
+      
       if(empty($usernm)||empty($password)){
         break;
       }
