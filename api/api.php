@@ -44,13 +44,13 @@ switch ($method) {
     if ($operation == "login"){
       $usernm=$_POST['username']; 
       $password=$_POST['password'];
-      
+
       $db=new dbConnect();
-      $result = $db->userLogin($user, $password);
+      $result = $db->userLogin($usernm, $password);
       $reply['result'] = $result;
       if($result){
         $reply["status"]="OK";
-      } 
+      }
 
     } 
 
