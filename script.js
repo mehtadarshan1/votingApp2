@@ -56,7 +56,7 @@ function updateVote(){
 	console.log(data);
 	$.ajax({
 	    url: 'api/api.php', // your api url
-	    method: 'GET', // method is any HTTP method
+	    method: 'POST', // method is any HTTP method
 	    data: data, // data as js object
 	    success: function(response) {
 			if (response['status'] == "OK"){
