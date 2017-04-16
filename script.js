@@ -64,7 +64,7 @@ function updateVote(){
 			}
 		},error: function (data){
 	    	$('#voteError').html("Please choose an option");
-	    }
+	    },
 	    async: false
 	});
 }
