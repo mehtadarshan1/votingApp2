@@ -1,5 +1,4 @@
 username = "";
-
 function login(){
 	// proccess
 	// api launch 
@@ -68,6 +67,8 @@ function updateVote(){
 	    async: false
 	});
 }
+// timer
+setInterval(function(){getVotes()},5000);
 
 function showLogin(value){
 	if(value){
