@@ -51,6 +51,11 @@ switch ($method) {
         $reply["status"]="OK";
       }
 
+    } else if($operation == "updateVote"){
+      $vote = $_POST['vote'];
+      $usernm=$_POST['username']; 
+      if (empty($vote))break;
+      $result= $db->vote($usernm, $vote);
     } 
 
     break;

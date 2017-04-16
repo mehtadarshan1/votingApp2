@@ -47,6 +47,28 @@ function getVotes(){
 	});
 }
 
+function updateVote(){
+
+	var data = {};
+	data.username = username;
+	data.vote = $("input[name='my_choice']:checked").val();
+	data['operation']='updateVote';
+	console.log(data);
+	$.ajax({
+	    url: 'api/api.php', // your api url
+	    method: 'GET', // method is any HTTP method
+	    data: data, // data as js object
+	    success: function(response) {
+			if (response['status'] == "OK"){
+				getVotes();
+			}
+		},error: function (data){
+	    	$('#voteError').html("Please choose an option");
+	    }
+	    async: false
+	});
+}
+
 function showLogin(value){
 	if(value){
 		$('#loginPage').show();
