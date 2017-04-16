@@ -44,6 +44,9 @@ switch ($method) {
     if ($operation == "login"){
       $usernm=$_POST['username']; 
       $password=$_POST['password'];
+      if(empty($usernm)||empty($password)){
+        break;
+      }
 
       $db=new dbConnect();
       $result = $db->userLogin($usernm, $password);
